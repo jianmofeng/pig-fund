@@ -120,6 +120,7 @@
 		"vscode-test": "^1.4.0"
 	},
 	"dependencies": {
-		"@types/string-width": "^4.0.1"
+		"@types/string-width": "^4.0.1",
+		"string-width": "^4.2.0"
 	}
 }

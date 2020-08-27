@@ -20,7 +20,6 @@ const request = (url) => __awaiter(void 0, void 0, void 0, function* () {
                 reject(new Error('网络请求错误'));
                 return;
             }
-            console.log(res);
             res.on('data', (chunk) => chunks += chunk.toString('utf8'));
             res.on('end', () => resolve(chunks));
         });

@@ -1,14 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const vscode_1 = require("vscode");
-// import { fillString } from './utils'
+const utils_1 = require("./utils");
 class FundItem extends vscode_1.TreeItem {
     constructor(info) {
         const rate = Number(info.changeRate);
         const icon = rate >= 0 ? '📈' : '📉';
         const prev = rate >= 0 ? '+' : '-';
         const rage = `${prev}${Math.abs(rate)}%`;
-        const name = info.name; //fillString(info.name, 25)
+        const name = utils_1.fillString(info.name, 25);
         super(`${icon}${name} ${rage}`);
         let sliceName = info.name;
         if (sliceName.length > 8) {

@@ -1,5 +1,5 @@
 import { TreeItem } from 'vscode'
-// import { fillString } from './utils'
+import { fillString } from './utils'
 
 export default class FundItem extends TreeItem {
     info: PigInfo
@@ -9,7 +9,7 @@ export default class FundItem extends TreeItem {
         const icon = rate >= 0 ? '📈' : '📉'
         const prev = rate >= 0 ? '+' : '-'
         const rage = `${prev}${Math.abs(rate)}%`
-        const name = info.name //fillString(info.name, 25)
+        const name = fillString(info.name, 25)
 
         super(`${icon}${name} ${rage}`)
 

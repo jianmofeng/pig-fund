@@ -1,4 +1,4 @@
-import { workspace, TreeDataProvider, Event, EventEmitter, TreeItem, window } from 'vscode'
+import { workspace, TreeDataProvider, Event, EventEmitter, window } from 'vscode'
 import pigApi from './api';
 import PigItem from './TreeItem'
 
