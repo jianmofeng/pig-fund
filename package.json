@@ -1,0 +1,125 @@
+{
+	"name": "pig",
+	"displayName": "pig",
+	"description": "实时查看基金详情",
+	"publisher": "chenhao",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.48.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:pig.helloWorld",
+		"onView:pig-list"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "pig.add",
+				"title": "新增",
+				"icon": {
+					"light": "images/dark/add.svg",
+					"dark": "images/light/add.svg"
+				}
+			},
+			{
+				"command": "pig.refresh",
+				"title": "刷新",
+				"icon": {
+					"light": "images/dark_refresh.svg",
+					"dark": "images/light/refresh.svg"
+				}
+			},
+			{
+				"command": "pig.item.remove",
+				"title": "删除"
+			}
+		],
+		"menus": {
+			"view/title": [
+				{
+					"when": "view == pig-list",
+					"group": "navigation",
+					"command": "pig.refresh"
+				},
+				{
+					"when": "view == pig-list",
+					"group": "navigation",
+					"command": "pig.add"
+				}
+			],
+			"view/item/context": [
+				{
+					"command": "pig.item.remove",
+					"when": "view == pig-list",
+					"group": "inline"
+				}
+			]
+		},
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "pig-watch",
+					"title": "添加你想看的基金",
+					"icon": "images/pig.svg"
+				}
+			]
+		},
+		"views": {
+			"pig-watch": [
+				{
+					"name": "自选基金",
+					"id": "pig-list"
+				}
+			]
+		},
+		"configuration": [
+			{
+				"type": "object",
+				"title": "Pig",
+				"properties": {
+					"pig-watch.favorites": {
+						"type": "array",
+						"default": [
+							"163407",
+							"161017"
+						],
+						"description": "自选基金列表，值为基金代码"
+					},
+					"pig-watch.interval": {
+						"type": "number",
+						"default": 2,
+						"description": "刷新时间，单位为秒，默认 2 秒"
+					}
+				}
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint src --ext ts",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.48.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.0",
+		"@types/node": "^14.0.27",
+		"eslint": "^7.6.0",
+		"@typescript-eslint/eslint-plugin": "^3.8.0",
+		"@typescript-eslint/parser": "^3.8.0",
+		"glob": "^7.1.6",
+		"mocha": "^8.0.1",
+		"typescript": "^3.8.3",
+		"vscode-test": "^1.4.0"
+	},
+	"dependencies": {
+		"@types/string-width": "^4.0.1"
+	}
+}
