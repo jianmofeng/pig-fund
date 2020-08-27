@@ -1,7 +1,7 @@
 import { TreeItem } from 'vscode'
 import { fillString } from './utils'
 
-export default class FundItem extends TreeItem {
+export default class PigItem extends TreeItem {
     info: PigInfo
 
     constructor(info: PigInfo) {
